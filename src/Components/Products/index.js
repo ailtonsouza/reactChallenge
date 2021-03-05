@@ -7,12 +7,33 @@ const Products = (game) => {
 
   return (
     <div className={style.main}>
-      <p>{game.product.id}</p>
       <p>{game.product.name}</p>
-      <p>{game.product.price}</p>
-      <p>{game.product.score}</p>
-      <img src={dynamicImage.default} />
-      <p>------------------------</p>
+      <div className={style.body}>
+        <div className={style.data}>
+          <p>
+            <b>ID do produto:</b>
+          </p>
+          <p>{game.product.id}</p>
+
+          <p>
+            <b>Preço:</b>
+          </p>
+          <p>{game.product.price}</p>
+          <p>
+            <b>Score:</b>
+          </p>
+          <p>{game.product.score}</p>
+        </div>
+
+        <img className={style.imgProd} src={dynamicImage.default} />
+
+        <div className={style.buttons}>
+          <p>Adicionar </p>
+          <button className={style.button}>-</button>
+          <p>Remover</p>
+          <button className={style.button}>+</button>
+        </div>
+      </div>
     </div>
   );
 };

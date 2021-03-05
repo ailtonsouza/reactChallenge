@@ -8,9 +8,13 @@ const ShopPage = () => {
 
   return (
     <div className={style.main}>
-      {data.map((x) => (
-        <Product product={x} key={x.id} />
-      ))}
+      <div className={style.screenItems}>
+        <div className={style.items}>
+          {data.map((x) => (
+            <Product product={x} key={x.id} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
