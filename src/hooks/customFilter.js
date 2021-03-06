@@ -25,12 +25,6 @@ const customFilter = (value, data) => {
           `${value.inputValue.toLowerCase()}`
       );
 
-      return data.filter(
-        (x) =>
-          x[`${value.label}`].toLowerCase() !=
-          `${value.inputValue.toLowerCase()}`
-      );
-
     case "Igual a":
       return data.filter(
         (x) => x[`${value.label}`] == value.inputValue.toLowerCase()
@@ -42,6 +36,18 @@ const customFilter = (value, data) => {
             .toLowerCase()
             .includes(`${value.inputValue.toLowerCase()}`)
       );
+    case "Filter":
+      console.log("filtfghhfger");
+      return data.sort((a, b) => {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      });
+
     default:
       return data;
   }

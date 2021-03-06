@@ -12,7 +12,7 @@ const Filter = ({ label, type, children, setFilters }) => {
 
   const Component = (props) => {
     return (
-      <div onClick={props.teste}>
+      <div onClick={props.config}>
         {React.Children.map(children, (child) => {
           return React.cloneElement(child, {
             setSelectedOption: (e) => setSelectedOption(e),
@@ -49,6 +49,20 @@ const Filter = ({ label, type, children, setFilters }) => {
     });
   }, [selectedOption, inputValue]);
 
+  useEffect(() => {
+    if (type === "alphabeticall") {
+      setSelectedOption({
+        Simbolo: "x",
+        valor: "Doesnt Filter",
+      });
+    } else {
+      setSelectedOption({
+        Simbolo: "=",
+        valor: "Igual a",
+      });
+    }
+  }, []);
+
   const config = () => {
     setOpen(!open);
   };
@@ -68,7 +82,7 @@ const Filter = ({ label, type, children, setFilters }) => {
         )}
         <button onClick={() => config()}>{selectedOption.Simbolo}</button>
       </div>
-      {open && <Component teste={config} />}
+      {open && <Component config={config} />}
     </>
   );
 };

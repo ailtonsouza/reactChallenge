@@ -10,3 +10,13 @@
   width: 50px;
   color: rgb(197, 132, 12);
 }
+
+.btn {
+  height: 70%;
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid white;
+  border-radius: 10px;
+  outline: none;
+  background-color: rgb(120, 121, 122);
+}

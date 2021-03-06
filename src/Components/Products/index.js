@@ -4,7 +4,7 @@ const images = require.context("../../assets", true);
 
 const Products = (game) => {
   const dynamicImage = images(`./${game.product.image}`);
-
+  let disable = game.getCartQuantity(game) === 0;
   return (
     <div className={style.main}>
       <p>{game.product.name}</p>
@@ -28,12 +28,25 @@ const Products = (game) => {
         <img className={style.imgProd} src={dynamicImage.default} />
 
         <div className={style.buttons}>
-          <p>Adicionar </p>
-          <button className={style.button}>-</button>
-          <p>Remover</p>
-          <button className={style.button}>+</button>
+          <p>Add to cart </p>
+
+          <button
+            disabled={disable}
+            className={disable ? style.buttonDisabled : style.button}
+            onClick={() => game.removeLocalStorage(game)}
+          >
+            -
+          </button>
+          <p>Remove to cart</p>
+          <button
+            className={style.button}
+            onClick={() => game.setLocalStorage(game)}
+          >
+            +
+          </button>
         </div>
       </div>
+      <p>Cart Quantity: {game.getCartQuantity(game)}</p>
     </div>
   );
 };

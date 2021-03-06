@@ -4,14 +4,7 @@ import ShopPage from "./Pages/ShopPage";
 import MenuBar from "./Components/MenuBar";
 
 function App() {
-  return (
-    <div className={style.main}>
-      <MenuBar />
-      <div className={style.userInteraction}>
-        <ShopPage />
-      </div>
-    </div>
-  );
+  return <ShopPage />;
 }
 
 export default App;

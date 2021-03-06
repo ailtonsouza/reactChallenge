@@ -15,9 +15,15 @@ const customSelector = () => {
     { Simbolo: "⊅", valor: "Não contem" },
   ];
 
+  const alphabeticallySimbols = [
+    { Simbolo: "✓", valor: "Filter" },
+    { Simbolo: "x", valor: "Doesnt Filter" },
+  ];
+
   return {
     mathSimbols,
     stringSimbols,
+    alphabeticallySimbols,
   };
 };
 
