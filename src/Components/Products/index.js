@@ -11,14 +11,14 @@ const Products = (game) => {
       <div className={style.body}>
         <div className={style.data}>
           <p>
-            <b>ID do produto:</b>
+            <b>Product ID:</b>
           </p>
           <p>{game.product.id}</p>
 
           <p>
-            <b>Preço:</b>
+            <b>Price:</b>
           </p>
-          <p>{game.product.price}</p>
+          <p>${game.product.price}</p>
           <p>
             <b>Score:</b>
           </p>

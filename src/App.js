@@ -8,7 +8,6 @@ function App() {
     <div className={style.main}>
       <MenuBar />
       <div className={style.userInteraction}>
-        <FilterBar />
         <ShopPage />
       </div>
     </div>
