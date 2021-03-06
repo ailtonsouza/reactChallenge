@@ -18,7 +18,7 @@ const Products = (game) => {
           <p>
             <b>Price:</b>
           </p>
-          <p>${game.product.price}</p>
+          <p>${game.product.price.toFixed(2)}</p>
           <p>
             <b>Score:</b>
           </p>

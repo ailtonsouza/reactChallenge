@@ -32,39 +32,47 @@ const ShopPage = () => {
   }
 
   function setLocalStorage(e) {
-    const boughtItems = getBoughtItems();
-    const found = boughtItems.find((x) => x.id === e.product.id);
+    let boughtItems = getBoughtItems();
+
+    const element = e.product === undefined ? e : e.product;
+    console.log(e);
+    const found = boughtItems.find((x) => x.id === element.id);
     if (found) {
-      const filteredBoughtItems = boughtItems.filter(
-        (x) => x.id !== e.product.id
+      boughtItems = boughtItems.map((x) =>
+        x.id === element.id
+          ? {
+              id: element.id,
+              name: element.name,
+              price: element.price,
+              score: element.score,
+              image: element.image,
+              quantity: x.quantity + 1,
+            }
+          : x
       );
-      found.quantity += 1;
-      filteredBoughtItems.push(found);
-      localStorage.setItem("boughtItems", JSON.stringify(filteredBoughtItems));
-      setLocalStorageData(filteredBoughtItems);
     } else {
       boughtItems.push({
-        id: e.product.id,
-        name: e.product.name,
-        price: e.product.price,
-        score: e.product.score,
+        id: element.id,
+        name: element.name,
+        price: element.price,
+        score: element.score,
+        image: element.image,
         quantity: 1,
       });
-      localStorage.setItem("boughtItems", JSON.stringify(boughtItems));
-      setLocalStorageData(boughtItems);
     }
-    //window.location.reload();
+    localStorage.setItem("boughtItems", JSON.stringify(boughtItems));
+    setLocalStorageData(boughtItems);
   }
 
   function removeLocalStorage(e) {
-    const boughtItems = getBoughtItems();
-
-    const found = boughtItems.find((x) => x.id === e.product.id);
+    let boughtItems = getBoughtItems();
+    const element = e.product === undefined ? e : e.product;
+    const found = boughtItems.find((x) => x.id === element.id);
 
     if (found) {
       if (found.quantity === 1) {
         const filteredBoughtItems = boughtItems.filter(
-          (x) => x.id !== e.product.id
+          (x) => x.id !== element.id
         );
         localStorage.setItem(
           "boughtItems",
@@ -72,16 +80,20 @@ const ShopPage = () => {
         );
         setLocalStorageData(filteredBoughtItems);
       } else {
-        found.quantity -= 1;
-        const filteredBoughtItems = boughtItems.filter(
-          (x) => x.id !== e.product.id
+        boughtItems = boughtItems.map((x) =>
+          x.id === element.id
+            ? {
+                id: element.id,
+                name: element.name,
+                price: element.price,
+                score: element.score,
+                image: element.image,
+                quantity: x.quantity - 1,
+              }
+            : x
         );
-        filteredBoughtItems.push(found);
-        localStorage.setItem(
-          "boughtItems",
-          JSON.stringify(filteredBoughtItems)
-        );
-        setLocalStorageData(filteredBoughtItems);
+        localStorage.setItem("boughtItems", JSON.stringify(boughtItems));
+        setLocalStorageData(boughtItems);
       }
     }
   }
@@ -150,6 +162,9 @@ const ShopPage = () => {
       </div>
       <ModalCart
         getBoughtItems={getBoughtItems()}
+        setLocalStorage={(e) => setLocalStorage(e)}
+        removeLocalStorage={(e) => removeLocalStorage(e)}
+        // getCartQuantity={(e) => getCartQuantity(e)}
         isOpen={modalCart}
         closeModal={() => setmodalCart(false)}
       />

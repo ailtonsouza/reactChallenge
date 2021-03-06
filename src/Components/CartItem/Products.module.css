@@ -1,20 +1,21 @@
 .main {
-  margin: 2% 5% 2% 5%;
-  width: 40%;
+  border-top: 1px solid rgb(12, 11, 11);
+  border-bottom: 1px solid rgb(12, 11, 11);
+  padding: 1%;
+  width: 100%;
+
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  background-color: white;
-  border: 2px solid black;
 }
 
 .body {
-  border-top: 2px solid rgb(12, 11, 11);
-  border-bottom: 2px solid rgb(12, 11, 11);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 2%;
   width: 100%;
-  justify-content: space-around;
+  height: 100%;
 }
 
 .buttons {
@@ -53,6 +54,43 @@
 .data {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   width: 30%;
+}
+
+.price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.quantityButtons {
+  display: flex;
+}
+
+.add {
+  cursor: pointer;
+  outline: none;
+  background-color: green;
+  border-radius: 10%;
+  margin-left: 3%;
+  width: 15%;
+}
+
+.decrease {
+  cursor: pointer;
+  outline: none;
+  background-color: orange;
+  border-radius: 10%;
+  margin-left: 3%;
+  width: 15%;
+}
+
+.remove {
+  cursor: pointer;
+  outline: none;
+  background-color: red;
+  border-radius: 10%;
+  margin-left: 3%;
+  width: 15%;
 }
