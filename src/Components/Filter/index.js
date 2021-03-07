@@ -74,7 +74,9 @@ const Filter = ({ label, type, children, setFilters }) => {
           className={style.Input}
           type={type}
           onChange={(e) => setInputValue(e.target.value)}
+          disabled={type === "alphabeticall"}
         />
+
         {inputValue ? (
           <span id={style.Filled}>{label}</span>
         ) : (

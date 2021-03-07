@@ -1,5 +1,5 @@
 import React from "react";
-
+import Backdrop from "../Backdrop";
 
 import style from "./selector.module.css";
 
@@ -9,6 +9,7 @@ const Selector = (props) => {
       <div className={style.options}>
         {props.selectors.map((x) => (
           <div
+            key={x.valor}
             className={style.option}
             onClick={() =>
               props.setSelectedOption({
@@ -21,7 +22,7 @@ const Selector = (props) => {
           </div>
         ))}
       </div>
-    
+      <Backdrop isOpen={true} />
     </>
   );
 };

@@ -7,7 +7,7 @@ const ModalCart = (props) => {
   const x = props.getBoughtItems;
   const nItems = x.reduce((x, y) => (x += y.quantity), 0);
   const totalProducts = x.reduce((x, y) => (x += y.price * y.quantity), 0);
-  console.log(x.length);
+
   return props.isOpen ? (
     x.length > 0 ? (
       <>
@@ -19,6 +19,7 @@ const ModalCart = (props) => {
             <div className={style.items}>
               {x.map((x) => (
                 <CartItem
+                  key={x.id}
                   item={x}
                   setLocalStorage={(x) => props.setLocalStorage(x)}
                   decreaseLocalStorage={(x) => props.decreaseLocalStorage(x)}
@@ -60,9 +61,7 @@ const ModalCart = (props) => {
             <img src={CartEmpty} />
             <h1>Cart is empty</h1>
             <p>Looks like you have no items in your shopping cart.</p>
-            <p onClick={() => console.log("dfggdf")}>
-              Click to continue shopping.
-            </p>
+            <p>Click to continue shopping.</p>
           </div>
         </div>
       </div>

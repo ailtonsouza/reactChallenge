@@ -7,7 +7,7 @@ const Products = (game) => {
   let disable = game.getCartQuantity(game) === 0;
   return (
     <div className={style.main}>
-      <p>{game.product.name}</p>
+      <h3>{game.product.name}</h3>
       <div className={style.body}>
         <div className={style.data}>
           <p>

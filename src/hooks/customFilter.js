@@ -1,4 +1,4 @@
-const customFilter = (value, data) => {
+const customFilter = (value, data, originalData) => {
   switch (value.valor) {
     case "Menor que":
       return data.filter((x) => x[`${value.label}`] * 1 < value.inputValue * 1);
@@ -19,16 +19,10 @@ const customFilter = (value, data) => {
         (x) => x[`${value.label}`] * 1 >= value.inputValue * 1
       );
     case "Diferente":
-      data.filter(
-        (x) =>
-          x[`${value.label}`].toLowerCase() !=
-          `${value.inputValue.toLowerCase()}`
-      );
+      return data.filter((x) => x[`${value.label}`] != value.inputValue);
 
     case "Igual a":
-      return data.filter(
-        (x) => x[`${value.label}`] == value.inputValue.toLowerCase()
-      );
+      return data.filter((x) => x[`${value.label}`] == value.inputValue);
     case "Não contem":
       return data.filter(
         (x) =>
@@ -37,8 +31,7 @@ const customFilter = (value, data) => {
             .includes(`${value.inputValue.toLowerCase()}`)
       );
     case "Filter":
-      console.log("filtfghhfger");
-      return data.sort((a, b) => {
+      return [...data].sort((a, b) => {
         if (a.name < b.name) {
           return -1;
         }

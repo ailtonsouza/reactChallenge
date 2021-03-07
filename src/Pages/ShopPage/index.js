@@ -11,8 +11,8 @@ import ModalCart from "../../Components/ModalCart";
 import MenuBar from "../../Components/MenuBar";
 
 const ShopPage = () => {
-  const [data, setDate] = useState(games);
-  const [filterData, setFilterData] = useState([...games]);
+  const [datax, setDate] = useState(games);
+  const [filterData, setFilterData] = useState(games);
   const [filters, setFilters] = useState([]);
   const [modalCart, setmodalCart] = useState(false);
   const [, setLocalStorageData] = useState();
@@ -20,14 +20,17 @@ const ShopPage = () => {
   const { mathSimbols, alphabeticallySimbols } = customSelectors();
 
   function filter() {
-    let d = data;
+    let d = datax;
 
     for (let i = 0; i < filters.length; i++) {
-      if (filters[i].inputValue.length > 0) {
+      if (
+        filters[i].inputValue.length > 0 ||
+        filters[i].label === "Sort alphabetically?"
+      ) {
         d = customFilter(filters[i], d);
       }
     }
-
+    console.log(d);
     setFilterData(d);
   }
 
@@ -35,7 +38,7 @@ const ShopPage = () => {
     let boughtItems = getBoughtItems();
 
     const element = e.product === undefined ? e : e.product;
-    console.log(e);
+
     const found = boughtItems.find((x) => x.id === element.id);
     if (found) {
       boughtItems = boughtItems.map((x) =>
@@ -101,7 +104,6 @@ const ShopPage = () => {
   function removeLocalStorage(e) {
     let boughtItems = getBoughtItems();
     const element = e.product === undefined ? e : e.product;
-    // const found = boughtItems.find((x) => x.id === element.id);
 
     const filteredBoughtItems = boughtItems.filter((x) => x.id !== element.id);
 
@@ -139,7 +141,10 @@ const ShopPage = () => {
 
   return (
     <>
-      <MenuBar setmodalCart={() => setmodalCart(true)} />
+      <MenuBar
+        getBoughtItems={() => getBoughtItems()}
+        setmodalCart={() => setmodalCart(true)}
+      />
 
       <div className={style.main}>
         <FilterBar filter={() => filter()}>
@@ -149,15 +154,17 @@ const ShopPage = () => {
           <Filter type={"number"} label="score" setFilters={setFilters}>
             <Selector selectors={mathSimbols} />
           </Filter>
+
           <Filter
             type={"alphabeticall"}
-            label="sort alphabetically"
+            label={"Sort alphabetically?"}
             setFilters={setFilters}
           >
             <Selector selectors={alphabeticallySimbols} />
           </Filter>
         </FilterBar>
         <div className={style.screenItems}>
+          <h1>Available Games</h1>
           <div className={style.items}>
             {filterData.map((x) => (
               <Product
@@ -176,7 +183,6 @@ const ShopPage = () => {
         setLocalStorage={(e) => setLocalStorage(e)}
         decreaseLocalStorage={(e) => decreaseLocalStorage(e)}
         removeLocalStorage={(e) => removeLocalStorage(e)}
-        // getCartQuantity={(e) => getCartQuantity(e)}
         isOpen={modalCart}
         closeModal={() => setmodalCart(false)}
       />
