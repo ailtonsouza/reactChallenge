@@ -64,7 +64,7 @@ const ShopPage = () => {
     setLocalStorageData(boughtItems);
   }
 
-  function removeLocalStorage(e) {
+  function decreaseLocalStorage(e) {
     let boughtItems = getBoughtItems();
     const element = e.product === undefined ? e : e.product;
     const found = boughtItems.find((x) => x.id === element.id);
@@ -96,6 +96,17 @@ const ShopPage = () => {
         setLocalStorageData(boughtItems);
       }
     }
+  }
+
+  function removeLocalStorage(e) {
+    let boughtItems = getBoughtItems();
+    const element = e.product === undefined ? e : e.product;
+    // const found = boughtItems.find((x) => x.id === element.id);
+
+    const filteredBoughtItems = boughtItems.filter((x) => x.id !== element.id);
+
+    localStorage.setItem("boughtItems", JSON.stringify(filteredBoughtItems));
+    setLocalStorageData(boughtItems);
   }
 
   function getBoughtItems() {
@@ -151,7 +162,7 @@ const ShopPage = () => {
             {filterData.map((x) => (
               <Product
                 setLocalStorage={(e) => setLocalStorage(e)}
-                removeLocalStorage={(e) => removeLocalStorage(e)}
+                decreaseLocalStorage={(e) => decreaseLocalStorage(e)}
                 getCartQuantity={(e) => getCartQuantity(e)}
                 product={x}
                 key={x.id}
@@ -163,6 +174,7 @@ const ShopPage = () => {
       <ModalCart
         getBoughtItems={getBoughtItems()}
         setLocalStorage={(e) => setLocalStorage(e)}
+        decreaseLocalStorage={(e) => decreaseLocalStorage(e)}
         removeLocalStorage={(e) => removeLocalStorage(e)}
         // getCartQuantity={(e) => getCartQuantity(e)}
         isOpen={modalCart}

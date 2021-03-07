@@ -28,16 +28,16 @@ const Products = (game) => {
         <img className={style.imgProd} src={dynamicImage.default} />
 
         <div className={style.buttons}>
-          <p>Add to cart </p>
+          <p>Remove to cart </p>
 
           <button
             disabled={disable}
             className={disable ? style.buttonDisabled : style.button}
-            onClick={() => game.removeLocalStorage(game)}
+            onClick={() => game.decreaseLocalStorage(game)}
           >
             -
           </button>
-          <p>Remove to cart</p>
+          <p>Add to cart</p>
           <button
             className={style.button}
             onClick={() => game.setLocalStorage(game)}

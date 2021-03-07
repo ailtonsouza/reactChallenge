@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./ModalCart.module.css";
 import CartItem from "../CartItem";
+import CartEmpty from "../../assets/cartempty.png";
 
 const ModalCart = (props) => {
   const x = props.getBoughtItems;
@@ -20,7 +21,8 @@ const ModalCart = (props) => {
                 <CartItem
                   item={x}
                   setLocalStorage={(x) => props.setLocalStorage(x)}
-                  removeLocalStorage={(x) => props.setLocalStorage(x)}
+                  decreaseLocalStorage={(x) => props.decreaseLocalStorage(x)}
+                  removeLocalStorage={(x) => props.removeLocalStorage(x)}
                 />
               ))}
             </div>
@@ -52,7 +54,17 @@ const ModalCart = (props) => {
       </>
     ) : (
       <div className={style.Modal} onClick={() => props.closeModal()}>
-        <div className={style.Window}> Vazio </div>
+        <div className={style.Window}>
+          <h1>Shopping Cart</h1>
+          <div className={style.body}>
+            <img src={CartEmpty} />
+            <h1>Cart is empty</h1>
+            <p>Looks like you have no items in your shopping cart.</p>
+            <p onClick={() => console.log("dfggdf")}>
+              Click to continue shopping.
+            </p>
+          </div>
+        </div>
       </div>
     )
   ) : null;

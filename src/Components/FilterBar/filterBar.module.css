@@ -4,7 +4,7 @@
   align-items: center;
 
   flex-flow: column nowrap;
-  background-color: #b9dddd;
+  background-color: #669595;
 
   border-radius: 5px;
 
@@ -53,5 +53,5 @@
 .findMenu {
   height: 55px;
   width: 55px;
-  background-color: rgb(17, 50, 241);
+  background-color: rgb(6, 10, 31);
 }
