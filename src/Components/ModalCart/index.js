@@ -13,6 +13,14 @@ const ModalCart = (props) => {
       <>
         <div className={style.Modal} onClick={() => props.closeModal()}></div>
         <div className={style.Window}>
+          <div className={style.top}>
+            <button
+              className={style.closeBtn}
+              onClick={() => props.closeModal()}
+            >
+              X
+            </button>
+          </div>
           <h1>Shopping Cart</h1>
           <div className={style.screenItems}>
             <p className={style.price}>Price:</p>
@@ -28,28 +36,37 @@ const ModalCart = (props) => {
               ))}
             </div>
           </div>
-          <div className={style.total}>
-            <p>
-              Subtotal ( {nItems} items): <b> ${totalProducts.toFixed(2)}</b>
-            </p>
+          <div className={style.footer}>
+            <button
+              className={style.checkoutBtn}
+              onClick={() => props.closeModal()}
+            >
+              Checkout
+            </button>
 
-            {totalProducts > 250 ? (
-              <>
-                <p>Free Shipping </p>
-                <p className={style.totalItem}>
-                  Total: <b>${totalProducts.toFixed(2)}</b>{" "}
-                </p>
-              </>
-            ) : (
-              <>
-                <p>
-                  Shipping: <b>${(nItems * 10).toFixed(2)}</b>{" "}
-                </p>
-                <p className={style.totalItem}>
-                  Total: <b>${(nItems * 10 + totalProducts).toFixed(2)}</b>{" "}
-                </p>
-              </>
-            )}
+            <div className={style.total}>
+              <p>
+                Subtotal ( {nItems} items): <b> ${totalProducts.toFixed(2)}</b>
+              </p>
+
+              {totalProducts > 250 ? (
+                <>
+                  <p>Free Shipping </p>
+                  <p className={style.totalItem}>
+                    Total: <b>${totalProducts.toFixed(2)}</b>{" "}
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p>
+                    Shipping: <b>${(nItems * 10).toFixed(2)}</b>{" "}
+                  </p>
+                  <p className={style.totalItem}>
+                    Total: <b>${(nItems * 10 + totalProducts).toFixed(2)}</b>{" "}
+                  </p>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </>

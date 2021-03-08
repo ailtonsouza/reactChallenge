@@ -1,7 +1,7 @@
 .main {
   height: 92vh;
   width: 100%;
-  background-color: azure;
+  background-color: rgb(213, 219, 219);
   display: flex;
   flex: 1;
   flex-direction: row;

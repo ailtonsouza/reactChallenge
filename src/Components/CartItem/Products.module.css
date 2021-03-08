@@ -75,6 +75,12 @@
   border-radius: 10%;
   margin-left: 3%;
   width: 15%;
+  box-shadow: 0 3px #666;
+}
+
+.add:active {
+  box-shadow: 0 0px #666;
+  transform: translateY(2px);
 }
 
 .decrease {
@@ -84,6 +90,12 @@
   border-radius: 10%;
   margin-left: 3%;
   width: 15%;
+  box-shadow: 0 3px #666;
+}
+
+.decrease:active {
+  box-shadow: 0 0px #666;
+  transform: translateY(2px);
 }
 
 .remove {
@@ -93,4 +105,14 @@
   border-radius: 10%;
   margin-left: 3%;
   width: 15%;
+  box-shadow: 0 3px #666;
+}
+
+.remove:active {
+  box-shadow: 0 0px #666;
+  transform: translateY(2px);
+}
+
+.imgProd {
+  height: 100px;
 }

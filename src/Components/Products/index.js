@@ -32,7 +32,7 @@ const Products = (game) => {
 
           <button
             disabled={disable}
-            className={disable ? style.buttonDisabled : style.button}
+            className={disable ? style.buttonDisabled : style.buttonRemove}
             onClick={() => game.decreaseLocalStorage(game)}
           >
             -
