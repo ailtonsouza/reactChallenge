@@ -148,10 +148,10 @@ const ShopPage = () => {
 
       <div className={style.main}>
         <FilterBar filter={() => filter()}>
-          <Filter type={"number"} label="price" setFilters={setFilters}>
+          <Filter type={"number"} label="Price" setFilters={setFilters}>
             <Selector selectors={mathSimbols} />
           </Filter>
-          <Filter type={"number"} label="score" setFilters={setFilters}>
+          <Filter type={"number"} label="Score" setFilters={setFilters}>
             <Selector selectors={mathSimbols} />
           </Filter>
 
@@ -164,7 +164,7 @@ const ShopPage = () => {
           </Filter>
         </FilterBar>
         <div className={style.screenItems}>
-          <h1>Available Games</h1>
+          <h1 className={style.title}>Available Games</h1>
           <div className={style.items}>
             {filterData.map((x) => (
               <Product

@@ -25,6 +25,9 @@
   justify-content: baseline;
   align-items: center;
   width: 85%;
-
   flex-direction: column;
+}
+
+.title {
+  margin-top: 1%;
 }

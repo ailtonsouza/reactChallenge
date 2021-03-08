@@ -1,34 +1,30 @@
-const customFilter = (value, data, originalData) => {
+const customFilter = (value, data) => {
   switch (value.valor) {
-    case "Menor que":
-      return data.filter((x) => x[`${value.label}`] * 1 < value.inputValue * 1);
-    case "Contem":
-      return data.filter((x) =>
-        x[`${value.label}`]
-          .toLowerCase()
-          .includes(`${value.inputValue.toLowerCase()}`)
-      );
-    case "Maior que":
-      return data.filter((x) => x[`${value.label}`] * 1 > value.inputValue * 1);
-    case "Menor ou igual":
+    case "Less than":
+      console.log(value, "x", data);
       return data.filter(
-        (x) => x[`${value.label}`] * 1 <= value.inputValue * 1
+        (x) => x[`${value.label.toLowerCase()}`] * 1 < value.inputValue * 1
       );
-    case "Maior ou igual":
+    case "Bigger than":
       return data.filter(
-        (x) => x[`${value.label}`] * 1 >= value.inputValue * 1
+        (x) => x[`${value.label.toLowerCase()}`] * 1 > value.inputValue * 1
       );
-    case "Diferente":
-      return data.filter((x) => x[`${value.label}`] != value.inputValue);
+    case "Less than or equal to":
+      return data.filter(
+        (x) => x[`${value.label.toLowerCase()}`] * 1 <= value.inputValue * 1
+      );
+    case "Bigger than or equal to":
+      return data.filter(
+        (x) => x[`${value.label.toLowerCase()}`] * 1 >= value.inputValue * 1
+      );
+    case "Different to":
+      return data.filter(
+        (x) => x[`${value.label.toLowerCase()}`] != value.inputValue
+      );
 
-    case "Igual a":
-      return data.filter((x) => x[`${value.label}`] == value.inputValue);
-    case "Não contem":
+    case "Equal to":
       return data.filter(
-        (x) =>
-          !x[`${value.label}`]
-            .toLowerCase()
-            .includes(`${value.inputValue.toLowerCase()}`)
+        (x) => x[`${value.label.toLowerCase()}`] == value.inputValue
       );
     case "Filter":
       return [...data].sort((a, b) => {

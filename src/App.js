@@ -1,4 +1,4 @@
-import style from "./App.module.css";
+import "./App.css";
 import ShopPage from "./Pages/ShopPage";
 
 function App() {

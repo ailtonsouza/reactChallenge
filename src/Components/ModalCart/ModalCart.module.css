@@ -116,17 +116,21 @@
 }
 
 .checkoutBtn {
-  background-color: rgb(32, 30, 30);
+  background-color: rgb(92, 165, 83);
+  border: 2px solid black;
   color: white;
   width: 20%;
   cursor: pointer;
   height: 60%;
   border-radius: 30px;
+  font-size: x-large;
   outline: none;
+  box-shadow: 2px 2px #666;
 }
 
 .checkoutBtn:active {
-  background-color: #090a09;
+  background-color: rgb(61, 145, 50);
   transform: translateY(4px);
+  transform: translateX(2px);
   box-shadow: 0 0px #666;
 }

@@ -6,7 +6,7 @@ const FilterBar = (props) => {
   return (
     <div className={style.RightNav}>
       <div className={style.rightNavHeader}>
-        <p>Filter</p>
+        <h2 className={style.title}> Filters</h2>
       </div>
 
       <div className={style.buttonSearch}>

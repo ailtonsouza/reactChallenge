@@ -4,9 +4,7 @@
   align-items: center;
 
   flex-flow: column nowrap;
-  background-color: #669595;
-
-  border-radius: 5px;
+  background-color: #a7a7a7;
 
   width: 20%;
 }
@@ -14,9 +12,13 @@
 .rightNavHeader {
   display: flex;
   align-items: center;
-  background-color: rgb(204, 238, 207);
+  background-color: rgb(204, 248, 215);
   height: 7%;
   width: 100%;
+}
+
+.title {
+  margin-left: 4%;
 }
 
 .buttonSearch {
@@ -53,5 +55,11 @@
 .findMenu {
   height: 55px;
   width: 55px;
-  background-color: rgb(6, 10, 31);
+  background-color: rgb(43, 57, 131);
+  box-shadow: 0px 3px #666;
+}
+
+.findMenu:active {
+  transform: translateY(2px);
+  box-shadow: 0 0px #666;
 }
