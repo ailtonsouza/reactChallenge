@@ -61,7 +61,7 @@ const Filter = ({ label, type, children, setFilters }) => {
         valor: "Equal to",
       });
     }
-  });
+  }, []);
 
   const config = () => {
     setOpen(!open);
