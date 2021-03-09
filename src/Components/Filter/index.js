@@ -58,10 +58,10 @@ const Filter = ({ label, type, children, setFilters }) => {
     } else {
       setSelectedOption({
         Simbolo: "=",
-        valor: "Igual a",
+        valor: "Equal to",
       });
     }
-  }, []);
+  });
 
   const config = () => {
     setOpen(!open);
