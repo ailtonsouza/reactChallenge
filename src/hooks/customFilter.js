@@ -1,7 +1,6 @@
 const customFilter = (value, data) => {
   switch (value.valor) {
     case "Less than":
-      console.log(value, "x", data);
       return data.filter(
         (x) => x[`${value.label.toLowerCase()}`] * 1 < value.inputValue * 1
       );

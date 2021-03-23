@@ -2,51 +2,55 @@ import React, { useState, useEffect } from "react";
 
 import style from "./input.module.css";
 
-const Filter = ({ label, type, children, setFilters }) => {
+import customSelectors from "../../hooks/customSelectors";
+
+const Filter = ({ label, type, children, setFilters, filters}) => {
   const [inputValue, setInputValue] = useState("");
   const [open, setOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState({
     Simbolo: "=",
-    valor: "Igual a",
+    valor: "Equal to",
   });
 
   const Component = (props) => {
     return (
-      <div onClick={props.config}>
-        {React.Children.map(children, (child) => {
-          return React.cloneElement(child, {
-            setSelectedOption: (e) => setSelectedOption(e),
-          });
-        })}
+      <div data-testid="painel" onClick={props.config}>
+    {React.cloneElement(children, {
+        setSelectedOption
+      })}  
       </div>
     );
   };
 
   useEffect(() => {
-    setFilters((f) => {
-      if (f.find((x) => x.label === label)) {
-        return [
-          ...f.map((x) =>
-            x.label === label
-              ? {
-                  label: label,
-                  inputValue: inputValue,
-                  valor: selectedOption.valor,
-                }
-              : x
-          ),
-        ];
-      } else {
-        return [
-          ...f,
-          {
-            label: label,
-            inputValue: inputValue,
-            valor: selectedOption.valor,
-          },
-        ];
-      }
-    });
+
+    if(filters === undefined){
+      return;
+    }
+       
+
+    if (filters.find((x) => x.label === label)) {
+      setFilters([
+        ...filters.map((x) =>
+          x.label === label
+            ? {
+                label: label,
+                inputValue: inputValue,
+                valor: selectedOption.valor,
+              }
+            : x
+        ),
+      ]);
+    } else {
+      setFilters([
+        ...filters,
+        {
+          label: label,
+          inputValue: inputValue,
+          valor: selectedOption.valor,
+        },
+      ]);
+    }
   }, [selectedOption, inputValue]);
 
   useEffect(() => {
@@ -71,20 +75,25 @@ const Filter = ({ label, type, children, setFilters }) => {
     <>
       <div className={style.InputBody}>
         <input
-          className={style.Input}
+          id={style.Input}
           type={type}
           onChange={(e) => setInputValue(e.target.value)}
           disabled={type === "alphabeticall"}
         />
 
         {inputValue ? (
-          <span id={style.Filled}>{label}</span>
+          <label htmlFor={style.Input} id={style.Filled}>
+            {label}
+          </label>
         ) : (
-          <span>{label}</span>
+          <label htmlFor={style.Input} >{label}</label>
         )}
-        <button onClick={() => config()}>{selectedOption.Simbolo}</button>
+        <button data-testid="button" onClick={() => config()}>
+          {selectedOption.Simbolo}
+        </button>
+       
       </div>
-      {open && <Component config={config} />}
+      {open ? <Component config={config} /> : null}
     </>
   );
 };

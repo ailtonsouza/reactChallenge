@@ -7,7 +7,7 @@
   width: 90%;
 }
 
-.Input {
+#Input {
   height: 35px;
   width: 90%;
   font-size: 120%;
@@ -17,7 +17,7 @@
   outline: none;
 }
 
-.InputBody span {
+.InputBody label {
   position: absolute;
   left: 2%;
   font-size: 120%;
@@ -26,7 +26,7 @@
   font-weight: 450;
 }
 
-.Input:focus + span {
+#Input:focus + label {
   position: absolute;
   transition: 0.3s;
   top: -10%;

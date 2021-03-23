@@ -19,6 +19,7 @@ const ShopPage = () => {
 
   const { mathSimbols, alphabeticallySimbols } = customSelectors();
 
+
   function filter() {
     let d = datax;
 
@@ -30,7 +31,7 @@ const ShopPage = () => {
         d = customFilter(filters[i], d);
       }
     }
-    console.log(d);
+
     setFilterData(d);
   }
 
@@ -148,10 +149,10 @@ const ShopPage = () => {
 
       <div className={style.main}>
         <FilterBar filter={() => filter()}>
-          <Filter type={"number"} label="Price" setFilters={setFilters}>
+          <Filter type={"number"} label="Price" setFilters={setFilters} filters={filters}>
             <Selector selectors={mathSimbols} />
           </Filter>
-          <Filter type={"number"} label="Score" setFilters={setFilters}>
+          <Filter type={"number"} label="Score" setFilters={setFilters} filters={filters}>
             <Selector selectors={mathSimbols} />
           </Filter>
 

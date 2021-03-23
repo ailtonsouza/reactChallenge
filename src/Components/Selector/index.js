@@ -8,10 +8,11 @@ const Selector = (props) => {
     <>
       <div className={style.options}>
         {props.selectors.map((x) => (
+
           <div
             key={x.valor}
             className={style.option}
-            onClick={() =>
+            onClick={() =>     
               props.setSelectedOption({
                 Simbolo: x.Simbolo,
                 valor: x.valor,

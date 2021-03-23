@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for Pages/ShopPage/index.js</title>
+    <title>Code coverage report for index.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">Pages/ShopPage</a> index.js</h1>
+        <h1><a href="index.html">All files</a> index.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/67</span>
+                <span class='fraction'>0/69</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/62</span>
+                <span class='fraction'>0/64</span>
             </div>
         
             
@@ -251,7 +251,8 @@
 <a name='L192'></a><a href='#L192'>192</a>
 <a name='L193'></a><a href='#L193'>193</a>
 <a name='L194'></a><a href='#L194'>194</a>
-<a name='L195'></a><a href='#L195'>195</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L195'></a><a href='#L195'>195</a>
+<a name='L196'></a><a href='#L196'>196</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -272,6 +273,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -284,7 +286,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -466,6 +468,7 @@ const ShopPage = <span class="cstat-no" title="statement not covered" ><span cla
 &nbsp;
   const { mathSimbols, alphabeticallySimbols } = <span class="cstat-no" title="statement not covered" >customSelectors();</span>
 &nbsp;
+<span class="cstat-no" title="statement not covered" >  </span>
 &nbsp;
   function <span class="fstat-no" title="function not covered" >filter(</span>) {
     let d = <span class="cstat-no" title="statement not covered" >datax;</span>
@@ -478,7 +481,7 @@ const ShopPage = <span class="cstat-no" title="statement not covered" ><span cla
 <span class="cstat-no" title="statement not covered" >        d = customFilter(filters[i], d);</span>
       }
     }
-&nbsp;
+<span class="cstat-no" title="statement not covered" >    console.log(d);</span>
 <span class="cstat-no" title="statement not covered" >    setFilterData(d);</span>
   }
 &nbsp;
@@ -596,10 +599,10 @@ const ShopPage = <span class="cstat-no" title="statement not covered" ><span cla
 &nbsp;
       &lt;div className={style.main}&gt;
         &lt;FilterBar filter={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >filter()}</span>&gt;
-          &lt;Filter type={"number"} label="Price" setFilters={setFilters} filters={filters}&gt;
+          &lt;Filter type={"number"} label="Price" setFilters={setFilters}&gt;
             &lt;Selector selectors={mathSimbols} /&gt;
           &lt;/Filter&gt;
-          &lt;Filter type={"number"} label="Score" setFilters={setFilters} filters={filters}&gt;
+          &lt;Filter type={"number"} label="Score" setFilters={setFilters}&gt;
             &lt;Selector selectors={mathSimbols} /&gt;
           &lt;/Filter&gt;
 &nbsp;
@@ -646,17 +649,17 @@ export default ShopPage;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Mar 23 2021 20:31:23 GMT-0300 (Horário Padrão de Brasília)
+                at Sun Mar 21 2021 14:33:35 GMT-0300 (Horário Padrão de Brasília)
             </div>
         </div>
-        <script src="../../prettify.js"></script>
+        <script src="prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../sorter.js"></script>
-        <script src="../../block-navigation.js"></script>
+        <script src="sorter.js"></script>
+        <script src="block-navigation.js"></script>
     </body>
 </html>
     
